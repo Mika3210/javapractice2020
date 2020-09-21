@@ -27,4 +27,12 @@ public class Rectangle {
     public void setLength(double length) {
         this.length = length;
     }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "width=" + width +
+                ", length=" + length +
+                '}';
+    }
 }
