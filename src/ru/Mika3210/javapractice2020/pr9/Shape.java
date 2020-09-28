@@ -1,4 +1,4 @@
-package ru.Mika3210.javapractice2020.pr8_1;
+package ru.Mika3210.javapractice2020.pr9;
 
 import java.awt.*;
 
@@ -36,5 +36,4 @@ public abstract class Shape {
         centerY=y;
     }
     public abstract void draw(Graphics2D a);
-
 }
