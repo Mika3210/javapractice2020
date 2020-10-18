@@ -4,23 +4,42 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ex1();
-        ex2();
-        ex3();
-        ex4();
-        ex5();
-        ex6();
-        ex7();
-        ex8();
-        ex9();
-        ex10();
-        ex11();
-        ex12();
-        ex13();
-        ex14();
-        ex15();
-        ex16();
-        ex17();
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        if (a==1)
+            ex1();
+        if (a==2)
+            ex2();
+        if (a==3)
+            ex3();
+        if (a==4)
+            ex4();
+        if (a==5)
+            ex5();
+        if (a==6)
+            ex6();
+        if (a==7)
+            ex7();
+        if (a==8)
+            ex8();
+        if (a==9)
+            ex9();
+        if (a==10)
+            ex10();
+        if (a==11)
+            ex11();
+        if (a==12)
+            ex12();
+        if (a==13)
+            ex13();
+        if (a==14)
+            ex14();
+        if (a==15)
+            ex15();
+        if (a==16)
+            ex16();
+        if (a==17)
+            ex17();
     }
 
     public static void ex1() {
@@ -94,19 +113,18 @@ public class Main {
         int n = scanner.nextInt();
         ex6rec(n,2);
     }
-    public static int ex6rec(int n, int i){
-        if (n<2)
-            System.out.println("NO");
-        else
-            if (n==2)
-                System.out.println("YES");
-        else
-            if (n%i==0)
-                System.out.println("NO");
-            else if(i<Math.sqrt(n))
-                return ex6rec(n,i+1);
-            else System.out.println("YES");
-            return 0;
+    public static void ex6rec(int n, int i){
+        if (i!=n) {
+            if (n % i == 0) {
+                System.out.print("NO");
+            }
+            else{
+                ex6rec(n,i+1);
+            }
+        }
+        else{
+            System.out.print("YES");
+        }
     }
 
     public static void ex7() {
@@ -164,8 +182,11 @@ public class Main {
         System.out.println(ex10rec(n, 0));
     }
     public static int ex10rec(int n, int i) {
-        if (n == 0) return i;
-        else return ex10rec(n / 10, i * 10 + n % 10);
+        if (n > 0) {
+            i = i * 10 + n%10;
+            return ex10rec(n/10,i);
+        }
+        else return i;
     }
 
     public static void ex11() {
@@ -194,11 +215,15 @@ public class Main {
     public static int ex13() {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        if (n == 0) return 0;
-        System.out.println(n);
-        n = scanner.nextInt();
-        if (n == 0) return 0;
-        return ex13();
+        int i = 1;
+        while (n != 0) {
+            if (i%2 != 0) System.out.println(n);
+            n = scanner.nextInt();
+            i++;
+        }
+        while (true){
+            n = scanner.nextInt();
+        }
     }
 
     public static void ex14() {
@@ -207,7 +232,7 @@ public class Main {
         ex14rec(n);
     }
     public static int ex14rec(int n) {
-        if (n >= 10) ex14rec(n / 10);
+        if (n >9) ex14rec(n / 10);
         System.out.print(n % 10 + " ");
         return 0;
     }
@@ -217,11 +242,11 @@ public class Main {
         int n = scanner.nextInt();
         ex15rec(n);
     }
-    public static int ex15rec(int n) {
-        if (n == 0) return 0;
-        System.out.print((n % 10) + " ");
-        ex15rec(n / 10);
-        return 0;
+    public static void ex15rec(int n) {
+        if (n > 0) {
+            System.out.print(n % 10 + " ");
+            ex15rec(n / 10);
+        }
     }
 
     public static void ex16() {
@@ -232,32 +257,33 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int max = n;
-        int k = 1;
+        int b = 1;
         while (n != 0) {
-            if (n == max) k++;
+            if (n == max) b++;
             if (n > max) {
                 max = n;
-                k = 1;
+                b = 1;
             }
             n = scanner.nextInt();
         }
-        a = k;
+        a = b;
         return a;
     }
 
     public static void ex17() {
-        int a = 0;
-        System.out.println(ex17rec(a));
-    }
-    public static int ex17rec(int a) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+        System.out.println(ex17rec(n));
+    }
+    public static int ex17rec(int n) {
+        Scanner scanner = new Scanner(System.in);
         int max = n;
         while (n != 0) {
-            if (n > max) max = n;
+            if (n > max)
+                max = n;
             n = scanner.nextInt();
         }
-        a = max;
-        return a;
+        n = max;
+        return n;
     }
 }
