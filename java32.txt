@@ -1,0 +1,1 @@
+MenuItem{cost=30, name='beer', description='/'}
